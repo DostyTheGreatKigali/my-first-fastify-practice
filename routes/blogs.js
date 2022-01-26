@@ -1,4 +1,5 @@
 const blogController = require('../controller/blogs');
+const downloadController = require('../controller/downloadFile');
 
 // Validation Schema
 const getBlogValidation = {
@@ -65,6 +66,11 @@ const routes = [{
         method: 'DELETE',
         url: '/api/blogs/:id',
         handler: blogController.deleteBlog
+    },
+    {
+        method: 'GET',
+        url: '/api/download',
+        handler: downloadController.pDownload
     }
 ]
 

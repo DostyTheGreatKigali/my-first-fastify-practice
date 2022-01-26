@@ -32,6 +32,12 @@ const fastify = require('fastify')({
 
 // Declare a route
 fastify.get('/', function (req, reply) {
+    // DOWNLOAD A FILE
+    // https://stackoverflow.com/questions/11944932/how-to-download-a-file-with-node-js-without-using-third-party-libraries
+    // const file = fs.createWriteStream("oct.csv");
+    // const request = http.get("https://s3-eu-west-1.amazonaws.com/tf-trans/2029/inflow_OCT-2021.csv", function(response) {
+    // response.pipe(file);
+    // });
     reply.send({ hello: 'world' })
 })
 
@@ -40,6 +46,14 @@ const blogRoutes = require('./routes/blogs')
 blogRoutes.forEach((route, index) => {
     fastify.route(route)
 })
+
+const http = require('https'); // or 'https' for https:// URLs
+const fs = require('fs');
+
+// const file = fs.createWriteStream("oct.csv");
+// const request = http.get("https://s3-eu-west-1.amazonaws.com/tf-trans/2029/inflow_OCT-2021.csv", function(response) {
+//   response.pipe(file);
+// });
 
 
 // Run the server!
@@ -51,3 +65,5 @@ fastify.listen(4000, (err, address) => {
     }
     fastify.log.info(`server listening on ${address}`)
 })
+
+
