@@ -30,6 +30,8 @@ const downloadFile = async (url, fileFullPath) =>{
 }
 
 let yearToSelect = new Date().getFullYear().toString();
+// CURRENT MONTH IN WWORDS
+// https://flaviocopes.com/how-to-get-month-from-javascript-date/
 let monthToSelect = (new Date().toLocaleString('default', { month: 'short' })).toUpperCase();
 console.log("Month selected " + monthToSelect);
 // let monthToSelect = (new Date().getMonth() + 1).toString().padStart(2, '0');
