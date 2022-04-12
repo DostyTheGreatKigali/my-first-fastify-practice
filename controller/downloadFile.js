@@ -22,9 +22,12 @@ function pDownload(url, dest) {
     });
 }
 
+const fileFullPath = '/home/musah/Desktop/Dev/Node/test-project/images/amazon_file.csv';
+
 //example
 // pDownload('https://s3-eu-west-1.amazonaws.com/tf-trans/2029/inflow_JAN-2022.csv', process.cwd() +'/downloads/downloads.csv')
-pDownload('https://s3-eu-west-1.amazonaws.com/tf-trans/2029/inflow_JAN-2022.csv', process.cwd() + 'downloads.csv')
+// pDownload('https://s3-eu-west-1.amazonaws.com/tf-trans/2029/inflow_JAN-2022.csv', process.cwd() + 'downloads.csv')
+pDownload('https://s3-eu-west-1.amazonaws.com/tf-trans/2029/inflow_JAN-2022.csv', fileFullPath)
     .then(() => console.log('downloaded file no issues...'))
     .catch(e => console.error('error while downloading', e));
     // download('https://s3-eu-west-1.amazonaws.com/tf-trans/2029/inflow_JAN-2022.csv', '/home/me')

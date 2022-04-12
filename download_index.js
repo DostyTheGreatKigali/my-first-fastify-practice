@@ -29,8 +29,24 @@ const downloadFile = async (url, fileFullPath) =>{
     })
 }
 
-const url = 'https://i.imgur.com/wgPdAB6.jpeg';
-const fileFullPath = '/home/musah/Desktop/Dev/Node/test-project/images/test.jpeg';
+let yearToSelect = new Date().getFullYear().toString();
+let monthToSelect = (new Date().toLocaleString('default', { month: 'short' })).toUpperCase();
+console.log("Month selected " + monthToSelect);
+// let monthToSelect = (new Date().getMonth() + 1).toString().padStart(2, '0');
+
+const urlStart = 'https://s3-eu-west-1.amazonaws.com/tf-trans/2029/';
+
+// const url = 'https://i.imgur.com/wgPdAB6.jpeg';
+// const url = 'https://s3-eu-west-1.amazonaws.com/tf-trans/2029/inflow_JAN-2022.csv';
+// const fileFullPath = '/home/musah/Desktop/Dev/Node/test-project/images/test.jpeg';
+
+let url = urlStart + 'inflow_' + monthToSelect + '-' + yearToSelect + '.csv';
+console.log("You're downloading from " + url)
+
+let fileDestination = 'downloaded_inflow_' + monthToSelect + '-' + yearToSelect + '.csv';
+
+// let fileFullPath = '/home/musah/Desktop/Dev/Node/test-project/itc_csvs/jan2022.csv'
+let fileFullPath = '/home/musah/Desktop/Dev/Node/test-project/itc_csvs/' + fileDestination;
 
 downloadFile(url, fileFullPath)
     .then(res => console.log(res))

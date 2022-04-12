@@ -1,2 +1,2 @@
-const dowbloadController = require('../controller/downloadFile');
+const downloadController = require('../controller/downloadFile');
 
