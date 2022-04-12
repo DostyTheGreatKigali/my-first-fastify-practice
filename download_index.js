@@ -35,8 +35,8 @@ let yearToSelect = new Date().getFullYear().toString();
 // let monthToSelect = (new Date().toLocaleString('default', { month: 'short' })).toUpperCase();
 
 // https://stackoverflow.com/questions/1643320/get-month-name-from-date
-let monthToSelect = new Date().toDateString().split(' ');
-monthToSelect = monthToSelect[1].toUpperCase();
+let monthToSelect = (new Date().toDateString().split(' ')[1]).toUpperCase();
+// monthToSelect = monthToSelect[1].toUpperCase();
 console.log("Month selected " + monthToSelect);
 // let monthToSelect = (new Date().getMonth() + 1).toString().padStart(2, '0');
 
